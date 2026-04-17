@@ -105,6 +105,7 @@ const tools = [
 
 .skills-header {
   margin-bottom: 52px;
+  text-align: center;
 }
 
 .section-label {
@@ -142,7 +143,8 @@ const tools = [
   color: #a3a3a3;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin: 0 0 10px 24px;
+  margin: 0 0 10px 0;
+  text-align: center;
 }
 
 /* Fade edges */
