@@ -11,13 +11,13 @@
         <!-- Right: content -->
         <div class="about-content-col">
           <p class="about-body">
-            I’m a student who enjoys building scalable system. 
-            Currently studying in University Malaysia Pahang Al-Sultan Abdullah in the field of Software Engineering,
-            and I’m passionate about writing clean,
-            maintainable code while creating seamless user experiences.
+            I am a Software Engineering student at University Malaysia Pahang Al-Sultan Abdullah (UMPSA) with a deep passion for building scalable systems and writing clean, maintainable code.
           </p>
           <p class="about-body">
-            I’m based in Malaysia and work with both frontend and backend technologies <bold>(*ps more to backend)</bold>. I’m always eager to learn new tools and improve my skills.
+            While I am comfortable working across the full stack, my core expertise and interest lie in Backend Development. I believe that a great user experience starts with a robust and efficient architecture.
+          </p>
+          <p class="about-body">
+            I’m based in Malaysia and work with both frontend and backend technologies. I’m always eager to learn new tools and improve my skills.
           </p>
 
           <!-- Quick facts -->

@@ -1,21 +1,14 @@
 <template>
   <footer class="footer">
     <div class="container footer-inner">
-      <span class="footer-name font-display">Your Name</span>
       <p class="footer-copy">
-        Built with Nuxt &amp; Tailwind CSS. &copy; {{ year }} All rights reserved.
+        &copy; 2026 All rights reserved. Crafted with passion.
       </p>
-      <div class="footer-links">
-        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:you@example.com">Email</a>
-      </div>
     </div>
   </footer>
 </template>
 
 <script lang="ts" setup>
-const year = new Date().getFullYear()
 </script>
 
 <style scoped>

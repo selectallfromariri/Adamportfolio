@@ -89,9 +89,17 @@
               ></textarea>
             </div>
 
-            <button type="submit" class="btn-black" style="width: 100%; justify-content: center;">
-              Send Message
+            <button 
+              type="submit" 
+              class="btn-black" 
+              style="width: 100%; justify-content: center;"
+              :disabled="status === 'loading'"
+            >
+              <span v-if="status === 'loading'">Sending...</span>
+              <span v-else>Send Message</span>
             </button>
+
+
           </form>
         </div>
       </div>
@@ -100,14 +108,60 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 const form = reactive({ name: '', email: '', subject: '', message: '' })
+const status = ref<'idle' | 'loading' | 'success' | 'error'>('idle')
 
-const handleSubmit = () => {
-  // Wire up your preferred contact service here (Formspree, EmailJS, etc.)
-  const mailto = `mailto:you@example.com?subject=${encodeURIComponent(form.subject || 'Portfolio Contact')}&body=${encodeURIComponent(`From: ${form.name} (${form.email})\n\n${form.message}`)}`
-  window.location.href = mailto
+const handleSubmit = async () => {
+  status.value = 'loading'
+  
+  try {
+    const response = await fetch('https://formspree.io/f/xpqkdrjb', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(form)
+    })
+
+    if (response.ok) {
+      status.value = 'success'
+      
+      ElNotification({
+        title: 'Success',
+        message: 'Message sent successfully! I\'ll get back to you soon.',
+        type: 'success',
+        position: 'bottom-right'
+      })
+
+      // Reset form
+      form.name = ''
+      form.email = ''
+      form.subject = ''
+      form.message = ''
+      
+      status.value = 'idle'
+    } else {
+      status.value = 'error'
+      ElNotification({
+        title: 'Error',
+        message: 'Something went wrong. Please try again.',
+        type: 'error',
+        position: 'bottom-right'
+      })
+    }
+  } catch (err) {
+    status.value = 'error'
+    ElNotification({
+      title: 'Error',
+      message: 'Network error. Please try again or email me directly.',
+      type: 'error',
+      position: 'bottom-right'
+    })
+    console.error('Form submission error:', err)
+  }
 }
 </script>
 

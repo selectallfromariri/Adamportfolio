@@ -2,21 +2,21 @@
   <header class="navbar">
     <div class="container navbar-inner">
       <!-- Logo / Name -->
-      <a href="#home" class="navbar-brand font-display">
+      <a href="/" class="navbar-brand font-display" @click.prevent="scrollToSection('home')">
         Adam Hariri
       </a>
 
       <!-- Desktop Nav Links -->
       <nav class="navbar-links" :class="{ open: menuOpen }">
-        <a href="#about" @click="closeMenu">About</a>
-        <a href="#projects" @click="closeMenu">Projects</a>
-        <a href="#skills" @click="closeMenu">Skills</a>
-        <a href="#contact" @click="closeMenu">Contact</a>
+        <a href="/" @click.prevent="scrollToSection('about')">About</a>
+        <a href="/" @click.prevent="scrollToSection('projects')">Projects</a>
+        <a href="/" @click.prevent="scrollToSection('skills')">Skills</a>
+        <a href="/" @click.prevent="scrollToSection('contact')">Contact</a>
       </nav>
 
       <!-- CTA -->
       <div class="navbar-cta">
-        <a href="#contact" class="btn-black">Hire me</a>
+        <a href="/" class="btn-black" @click.prevent="scrollToSection('contact')">Hire me</a>
       </div>
 
       <!-- Hamburger -->
@@ -34,6 +34,14 @@ import { ref } from 'vue'
 const menuOpen = ref(false)
 const toggleMenu = () => { menuOpen.value = !menuOpen.value }
 const closeMenu = () => { menuOpen.value = false }
+
+const scrollToSection = (id: string) => {
+  closeMenu()
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 
 <style scoped>

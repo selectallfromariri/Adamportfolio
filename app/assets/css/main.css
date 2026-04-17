@@ -26,7 +26,9 @@
 }
 
 /* ── Base Reset ── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -66,7 +68,10 @@ body {
   text-decoration: none;
   transition: opacity 0.15s;
 }
-.btn-black:hover { opacity: 0.85; }
+
+.btn-black:hover {
+  opacity: 0.85;
+}
 
 .btn-gray {
   display: inline-flex;
@@ -82,7 +87,10 @@ body {
   text-decoration: none;
   transition: background-color 0.15s;
 }
-.btn-gray:hover { background-color: #d4d4d4; }
+
+.btn-gray:hover {
+  background-color: #d4d4d4;
+}
 
 .btn-white {
   display: inline-flex;
@@ -98,7 +106,10 @@ body {
   text-decoration: none;
   transition: background-color 0.15s;
 }
-.btn-white:hover { background-color: #fafafa; }
+
+.btn-white:hover {
+  background-color: #fafafa;
+}
 
 /* ── Skill pill ── */
 .skill-pill {
@@ -120,6 +131,7 @@ body {
   border-radius: 12px;
   padding: 28px;
 }
+
 .card:hover {
   border-color: #a3a3a3;
 }
@@ -168,12 +180,15 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-.el-header, .el-footer {
+
+.el-header,
+.el-footer {
   --el-header-height: auto;
   --el-footer-height: auto;
   height: auto !important;
   padding: 0;
 }
+
 .el-main {
   padding: 0;
   overflow: visible;

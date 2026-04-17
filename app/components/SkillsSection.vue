@@ -12,7 +12,7 @@
       <p class="row-label">Frontend</p>
       <div class="marquee-fade">
         <div class="marquee-track">
-          <div class="marquee-content" v-for="n in 2" :key="'f'+n">
+          <div class="marquee-content" v-for="n in 10" :key="'f'+n">
             <div v-for="skill in frontend" :key="skill.name + n" class="skill-chip">
               <img :src="skill.icon" :alt="skill.name" class="chip-icon" loading="lazy" />
               <span class="chip-name">{{ skill.name }}</span>
@@ -27,7 +27,7 @@
       <p class="row-label">Backend &amp; Database</p>
       <div class="marquee-fade">
         <div class="marquee-track reverse">
-          <div class="marquee-content" v-for="n in 2" :key="'b'+n">
+          <div class="marquee-content" v-for="n in 10" :key="'b'+n">
             <div v-for="skill in backend" :key="skill.name + n" class="skill-chip">
               <img :src="skill.icon" :alt="skill.name" class="chip-icon" loading="lazy" />
               <span class="chip-name">{{ skill.name }}</span>
@@ -42,7 +42,7 @@
       <p class="row-label">Tools &amp; Workflow</p>
       <div class="marquee-fade">
         <div class="marquee-track">
-          <div class="marquee-content" v-for="n in 2" :key="'t'+n">
+          <div class="marquee-content" v-for="n in 10" :key="'t'+n">
             <div v-for="skill in tools" :key="skill.name + n" class="skill-chip">
               <img :src="skill.icon" :alt="skill.name" class="chip-icon" loading="lazy" />
               <span class="chip-name">{{ skill.name }}</span>
@@ -65,18 +65,14 @@ const frontend = [
   { name: 'React Native', icon: `${CDN}/react/react-original.svg` },
   { name: 'Tailwind CSS', icon: `${CDN}/tailwindcss/tailwindcss-original.svg` },
   { name: 'TypeScript',   icon: `${CDN}/typescript/typescript-original.svg` },
-  { name: 'HTML5',        icon: `${CDN}/html5/html5-original.svg` },
-  { name: 'CSS3',         icon: `${CDN}/css3/css3-original.svg` },
   { name: 'JavaScript',   icon: `${CDN}/javascript/javascript-original.svg` },
 ]
 
 const backend = [
-  { name: 'Node.js',    icon: `${CDN}/nodejs/nodejs-original.svg` },
   { name: 'Laravel',    icon: `${CDN}/laravel/laravel-original.svg` },
   { name: 'PHP',        icon: `${CDN}/php/php-original.svg` },
   { name: 'PostgreSQL', icon: `${CDN}/postgresql/postgresql-original.svg` },
   { name: 'MySQL',      icon: `${CDN}/mysql/mysql-original.svg` },
-  { name: 'REST APIs',  icon: `${CDN}/nodejs/nodejs-original.svg` },
 ]
 
 const tools = [
@@ -84,7 +80,6 @@ const tools = [
   { name: 'GitHub',  icon: `${CDN}/github/github-original.svg` },
   { name: 'VS Code', icon: `${CDN}/vscode/vscode-original.svg` },
   { name: 'Figma',   icon: `${CDN}/figma/figma-original.svg` },
-  { name: 'Docker',  icon: `${CDN}/docker/docker-original.svg` },
   { name: 'Postman', icon: `${CDN}/postman/postman-original.svg` },
 ]
 </script>
@@ -171,25 +166,25 @@ const tools = [
   background: linear-gradient(to left, #fafafa, transparent);
 }
 
-/* The track — double-wide to loop seamlessly */
+/* The track — multi-reps to loop seamlessly */
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-left 30s linear infinite;
+  gap: 24px; /* Big gap between the sets */
+  animation: marquee-left 60s linear infinite;
 }
 .marquee-track.reverse {
-  animation: marquee-right 30s linear infinite;
+  animation: marquee-right 60s linear infinite;
 }
 .marquee-track:hover,
 .marquee-track.reverse:hover {
   animation-play-state: paused;
 }
 
-/* Two copies of content side by side */
+/* Duplicated content side by side */
 .marquee-content {
   display: flex;
-  gap: 12px;
-  padding: 0 6px;
+  gap: 20px; /* Gap between individual skill chips */
   flex-shrink: 0;
 }
 
@@ -197,35 +192,44 @@ const tools = [
 .skill-chip {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   background: #ffffff;
   border: 1px solid #e5e5e5;
   border-radius: 12px;
   padding: 12px 20px;
   white-space: nowrap;
   flex-shrink: 0;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-chip:hover {
+  transform: translateY(-2px);
+  border-color: #d4d4d4;
 }
 
 .chip-icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
   display: block;
 }
 
 .chip-name {
   font-size: 0.9375rem;
-  font-weight: 400;
-  color: #262626;
+  font-weight: 500;
+  color: #171717;
 }
 
 /* ── Animations ── */
+/* To make it truly infinite with any number of items:
+   We animate -10% if we have 10 reps (1 rep distance).
+*/
 @keyframes marquee-left {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(calc(-10% - 2.4px)); } /* One rep + 1/10th of the track gap */
 }
 @keyframes marquee-right {
-  0%   { transform: translateX(-50%); }
+  0%   { transform: translateX(calc(-10% - 2.4px)); }
   100% { transform: translateX(0); }
 }
 
