@@ -52,7 +52,7 @@
 .hero-inner {
   display: flex;
   align-items: center;
-  gap: 100px;
+  gap: 90px;
 }
 
 .hero-avatar-wrap {
