@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/* ── Design Tokens (DESIGN.md / Ollama-inspired) ── */
+@theme {
+  /* Colors */
+  --color-pure-black: #000000;
+  --color-near-black: #262626;
+  --color-darkest-surface: #090909;
+  --color-pure-white: #ffffff;
+  --color-snow: #fafafa;
+  --color-light-gray: #e5e5e5;
+  --color-stone: #737373;
+  --color-mid-gray: #525252;
+  --color-silver: #a3a3a3;
+  --color-button-dark: #404040;
+  --color-border-light: #d4d4d4;
+
+  /* Typography */
+  --font-display: "SF Pro Rounded", system-ui, -apple-system, sans-serif;
+  --font-body: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+
+  /* Radius */
+  --radius-container: 12px;
+  --radius-pill: 9999px;
+}
+
+/* ── Base Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+}
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography helpers ── */
+.font-display {
+  font-family: "SF Pro Rounded", system-ui, -apple-system, sans-serif;
+}
+
+/* ── Button components ── */
+.btn-black {
+  display: inline-flex;
+  align-items: center;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: 1px solid #000000;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.btn-black:hover { opacity: 0.85; }
+
+.btn-gray {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e5e5e5;
+  color: #262626;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+.btn-gray:hover { background-color: #d4d4d4; }
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  color: #404040;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 10px 24px;
+  border-radius: 9999px;
+  border: 1px solid #d4d4d4;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+.btn-white:hover { background-color: #fafafa; }
+
+/* ── Skill pill ── */
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: #e5e5e5;
+  color: #262626;
+  font-size: 0.875rem;
+  font-weight: 400;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  border: 1px solid #e5e5e5;
+}
+
+/* ── Card ── */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 28px;
+}
+.card:hover {
+  border-color: #a3a3a3;
+}
+
+/* ── Section spacing ── */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  scroll-snap-align: start;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ── Divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 0;
+}
+
+/* ── Code block ── */
+.code-block {
+  background-color: #fafafa;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-family: ui-monospace, monospace;
+  font-size: 0.875rem;
+  color: #262626;
+  overflow-x: auto;
+}
+
+/* ── Suppress Element Plus competing styles on el-container ── */
+.el-container {
+  flex-direction: column;
+  min-height: 100vh;
+}
+.el-header, .el-footer {
+  --el-header-height: auto;
+  --el-footer-height: auto;
+  height: auto !important;
+  padding: 0;
+}
+.el-main {
+  padding: 0;
+  overflow: visible;
+}
