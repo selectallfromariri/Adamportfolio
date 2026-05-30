@@ -51,10 +51,13 @@
 </template>
 
 <style scoped>
-.about-section {
-  background-color: #fafafa;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
+
+@media (max-width: 768px) {
+  .about-section {
+    background-color: #fafafa;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+  }
 }
 
 .about-grid {

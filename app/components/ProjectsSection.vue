@@ -92,8 +92,14 @@
 
 <style scoped>
 .projects-section {
-  background-color: #ffffff;
-  border-top: 1px solid #e5e5e5;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    background-color: #ffffff;
+    border-top: 1px solid #e5e5e5;
+  }
 }
 
 .projects-header {

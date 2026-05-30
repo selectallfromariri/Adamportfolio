@@ -167,8 +167,14 @@ const handleSubmit = async () => {
 
 <style scoped>
 .contact-section {
-  background-color: #ffffff;
-  border-top: 1px solid #e5e5e5;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    background-color: #ffffff;
+    border-top: 1px solid #e5e5e5;
+  }
 }
 
 .contact-grid {

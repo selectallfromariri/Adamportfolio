@@ -38,7 +38,7 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #e8e6e1;
   color: #000000;
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 16px;
@@ -46,6 +46,28 @@ body {
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ── 3D Canvas Layer ── */
+/* z-index: 0  = Three.js canvas (fixed, desktop only) */
+/* z-index: 1+ = page-content wrapper                  */
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Desktop: allow drag cursor on empty space (canvas is pointer-events: none, */
+/* so we show grab cursor on the body when not over interactive elements)      */
+@media (min-width: 769px) {
+  body {
+    cursor: grab;
+  }
+  body:active {
+    cursor: grabbing;
+  }
+  a, button, input, textarea, select, [role="button"] {
+    cursor: pointer;
+  }
 }
 
 /* ── Typography helpers ── */
@@ -145,6 +167,15 @@ body {
   padding-top: 80px;
   padding-bottom: 80px;
   scroll-snap-align: start;
+  /* Transparent on desktop so the 3D canvas shows through the sides */
+  background: transparent;
+}
+
+/* On mobile (no canvas) restore opaque white sections */
+@media (max-width: 768px) {
+  .section {
+    background: #ffffff;
+  }
 }
 
 /* ── Container ── */
@@ -156,11 +187,21 @@ body {
   padding-right: 24px;
 }
 
+
+
+
 /* ── Divider ── */
 .divider {
   border: none;
   border-top: 1px solid #e5e5e5;
   margin: 0;
+}
+
+/* On desktop the sections are transparent/glass — dividers would float oddly */
+@media (min-width: 769px) {
+  .divider {
+    display: none;
+  }
 }
 
 /* ── Code block ── */

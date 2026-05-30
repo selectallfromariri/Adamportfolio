@@ -87,8 +87,7 @@ const tools = [
 <style scoped>
 /* ── Section shell ── */
 .skills-section {
-  background-color: #fafafa;
-  border-top: 1px solid #e5e5e5;
+  background-color: transparent;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -96,6 +95,14 @@ const tools = [
   gap: 0;
   padding-top: 80px;
   padding-bottom: 80px;
+}
+
+
+@media (max-width: 768px) {
+  .skills-section {
+    background-color: #fafafa;
+    border-top: 1px solid #e5e5e5;
+  }
 }
 
 .skills-header {
@@ -159,11 +166,20 @@ const tools = [
 }
 .marquee-fade::before {
   left: 0;
-  background: linear-gradient(to right, #fafafa, transparent);
+  background: linear-gradient(to right, rgba(250, 250, 250, 0.88), transparent);
 }
 .marquee-fade::after {
   right: 0;
-  background: linear-gradient(to left, #fafafa, transparent);
+  background: linear-gradient(to left, rgba(250, 250, 250, 0.88), transparent);
+}
+
+@media (max-width: 768px) {
+  .marquee-fade::before {
+    background: linear-gradient(to right, #fafafa, transparent);
+  }
+  .marquee-fade::after {
+    background: linear-gradient(to left, #fafafa, transparent);
+  }
 }
 
 /* The track — multi-reps to loop seamlessly */

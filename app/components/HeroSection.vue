@@ -45,8 +45,14 @@
 
 <style scoped>
 .hero-section {
-  background-color: #ffffff;
   min-height: calc(100vh - 64px);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    background-color: #ffffff;
+  }
 }
 
 .hero-inner {
