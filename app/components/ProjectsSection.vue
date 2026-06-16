@@ -49,12 +49,12 @@ const projects: Project[] = [
   {
     id: 'jimat2go',
     title: 'Jimat2Go',
-    medal: '🏆 Top 10 Finalist',
+    medal: 'Hackathon Finalist',
     image: '/assets/images/Jimat2Go.png',
     description: 'Jimat2Go is an AI camera app that intercepts impulse spending in real time.',
     brief: 'Jimat2Go is an AI camera app that I built during BeU by Bank Islam × UMPSA Hackathon X Fintech Forward 2026. It intercepts impulse spending in real time. Point your phone at any product, and it identifies the item, estimates the market price, coaches you on whether you actually need it, suggests where to get it cheaper if you do, and shows what that money could grow into if you dont.',
     tags: ['Flutter', 'FastAPI', 'Gemini AI', 'SerpAPI', 'PostgreSQL'],
-    github: 'https://github.com/selectallfromariri/Jimat2Go',
+    github: 'https://github.com/Jimat2go',
     media: ['/assets/images/Jimat2Go.png', '/assets/images/ScanExample.png', '/assets/images/Exampleoutpu.png']
   }
 ]
