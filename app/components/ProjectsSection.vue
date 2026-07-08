@@ -56,6 +56,16 @@ const projects: Project[] = [
     tags: ['Flutter', 'FastAPI', 'Gemini AI', 'SerpAPI', 'PostgreSQL'],
     github: 'https://github.com/Jimat2go',
     media: ['/assets/images/Jimat2Go.png', '/assets/images/ScanExample.png', '/assets/images/Exampleoutpu.png']
+  },
+  {
+    id: 'Cynosure',
+    title: 'Cynosure.dev',
+    medal: 'Freelance Work',
+    image: '/assets/images/cynoimg.jpeg',
+    description: 'A modern digital solutions platform designed to help businesses attract more customers and streamline their operations.',
+    brief: 'Cynosure.dev is a digital solutions company that provides website development, custom business systems, SEO optimization, and digital strategy services for small businesses. As a freelance developer, I designed and developed a modern, responsive website that showcases the company\'s services, reinforces its brand identity, and provides a seamless user experience. The goal was to create a professional online presence that builds credibility and encourages potential clients to get in touch.',
+    tags: ['Nuxt.js', 'Vue.js', 'Vue Library', 'Vue Components'],
+    media: ['/assets/images/cynosureMain.png', '/assets/images/CynosureCall.png']
   }
 ]
 
