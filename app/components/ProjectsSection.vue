@@ -12,6 +12,7 @@ interface Project {
   brief: string
   tags: string[]
   github?: string
+  website?: string
   media: string[]
   featured?: boolean
 }
@@ -20,6 +21,7 @@ const projects: Project[] = [
   {
     id: 'wedding',
     title: 'Wedding Management System',
+    medal: 'Personal Project',
     image: '/assets/images/Wedding Management.png',
     description: 'Wedding Management System where couples manage their wedding digitally and guests RSVP online, with a photo dump feature.',
     brief: 'A digital RSVP and wedding planning hub for couples. Features guest list management, real-time RSVP tracking, digital invitation landing pages, and a collaborative photo gallery where guests can upload memories.',
@@ -30,21 +32,12 @@ const projects: Project[] = [
   {
     id: 'trackback',
     title: 'TrackBack : Web Based System',
+    medal: 'Diploma FYP',
     image: '/assets/images/TrackbackPTA.png',
     description: 'TrackBack is a web-based system designed to help individuals find their lost items with a report lost & found feature.',
     brief: 'Developed as a final year Diploma project, TrackBack is a community-driven web app to report and trace lost items. It uses OpenStreetAPI geolocation to pin where items were lost or found, and PHPMailer to notify owners when matching items are discovered.',
     tags: ['PHP', 'Javascript', 'MySQL', 'OpenStreetAPI', 'PHPMailer'],
     media: ['/assets/images/TrackbackPTA.png', '/assets/images/TrackbackSecond.png']
-  },
-  {
-    id: 'pokedex',
-    title: 'Pokedex',
-    image: '/assets/images/pokedex.jpeg',
-    description: 'A Pokedex application that lets users search for Pokemon and view their stats. Built to learn React Native.',
-    brief: 'A personal learning project to master cross-platform mobile development with React Native. Fetches stats, types, and sprites from PokeAPI and displays them in a clean card layout with search and filter.',
-    tags: ['React Native', 'PokeAPI'],
-    github: 'https://github.com/selectallfromariri/Pokedex',
-    media: ['/assets/images/pokedex.jpeg']
   },
   {
     id: 'jimat2go',
@@ -66,7 +59,18 @@ const projects: Project[] = [
     brief: 'Cynosure.dev is a digital solutions company that provides website development, custom business systems, SEO optimization, and digital strategy services for small businesses. As a freelance developer, I designed and developed a modern, responsive website that showcases the company\'s services, reinforces its brand identity, and provides a seamless user experience. The goal was to create a professional online presence that builds credibility and encourages potential clients to get in touch.',
     tags: ['Nuxt.js', 'Vue.js', 'Vue Library', 'Vue Components'],
     media: ['/assets/images/cynosureMain.png', '/assets/images/CynosureCall.png']
-  }
+  },
+  {
+    id: 'tugasos',
+    title: 'TugasOS',
+    medal: 'International Hackathon',
+    image: '/assets/images/tugasos.png',
+description: 'TugasOS is an AI study app that lets students show real evidence of their work by timestamping drafts on BOT Chain.',
+brief: 'TugasOS is an AI study app that I built during Build Week Hackathon Vol. 2 by Girl Meets Tech. AI detectors only guess, so TugasOS records evidence instead. Upload your notes and the AI tutor answers only from them, citing the exact source. It breaks your assignment into milestones and checks your draft against the rubric. Each time you commit a draft, a hash of it and your self-declared AI-assistance level are recorded on BOT Chain through a smart contract, so your essay stays private and your progress has a timeline. It also turns past-year papers into a study plan and a reworded practice quiz.',
+    tags: ['Python', 'FastAPI', 'Openrouter', 'Supabase', 'Solidity', 'Blockchain'],
+    website: 'http://sisystem.org/',
+    media: ['/assets/images/tugasos.png']
+  },
 ]
 
 const activeProject = ref<Project | null>(null)
@@ -146,6 +150,9 @@ function prevMedia() {
             <div v-if="project.github" class="project-links" @click.stop>
               <a :href="project.github" target="_blank" rel="noopener" class="btn-black">View on GitHub</a>
             </div>
+             <div v-if="project.website" class="project-links" @click.stop>
+              <a :href="project.website" target="_blank" rel="noopener" class="btn-black">View Website</a>
+            </div>
           </div>
         </div>
 
@@ -175,7 +182,7 @@ function prevMedia() {
                 <el-image
                   v-if="activeProject.media[currentMediaIndex] !== 'no image'"
                   :src="activeProject.media[currentMediaIndex]"
-                  fit="cover"
+                  fit="contain"
                   class="carousel-img"
                 />
                 <div v-else class="no-img-text">No image provided yet</div>
@@ -208,6 +215,9 @@ function prevMedia() {
               </div>
               <div v-if="activeProject.github" class="project-links">
                 <a :href="activeProject.github" target="_blank" rel="noopener" class="btn-black">View on GitHub</a>
+              </div>
+              <div v-if="activeProject.website" class="project-links">
+                <a :href="activeProject.website" target="_blank" rel="noopener" class="btn-black">View Website</a>
               </div>
             </div>
 
